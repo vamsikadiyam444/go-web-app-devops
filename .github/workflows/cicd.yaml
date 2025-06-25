@@ -44,7 +44,7 @@ jobs:
           version: v1.56.2
           working-directory: .
           skip-cache: true
-          args: run ./...
+          args: ./...
 
   push:
     runs-on: ubuntu-latest
