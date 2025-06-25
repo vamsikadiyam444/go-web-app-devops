@@ -32,7 +32,7 @@ COPY --from=base /app/main .
 COPY --from=base /app/static ./static
 
 # Expose the port on which the application will run
-EXPOSE 8080
+EXPOSE 8088
 
 # Command to run the application
 CMD ["./main"]

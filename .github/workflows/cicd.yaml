@@ -85,12 +85,11 @@ jobs:
       run: |
         sed -i 's/tag: .*/tag: "${{github.run_id}}"/' helm/go-web-app-chart/values.yaml
 
-    - name: Commit and push changes
-      run: |
-        git config --global user.email "abhishek@gmail.com"
-        git config --global user.name "Abhishek Veeramalla"
-        git add helm/go-web-app-chart/values.yaml
-        git commit -m "Update tag in Helm chart"
-        git push
-
-
+          - name: Commit and push changes
+          env:
+         GH_PAT: ${{ secrets.GH_PAT }}
+         run: |
+         git remote set-url origin https://x-access-token:${GH_PAT}@github.com/vamsikadiyam444/go-web-app-devops.git
+         git add helm/go-web-app-chart/values.yaml
+          git commit -m "Update tag in Helm chart" || echo "No changes to commit"
+          git push origin main
