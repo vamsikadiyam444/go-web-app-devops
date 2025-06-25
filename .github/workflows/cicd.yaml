@@ -40,6 +40,7 @@ jobs:
           version: v1.56.2
           working-directory: .
           skip-cache: true
+          args: run ./...
 
   push:
     runs-on: ubuntu-latest
