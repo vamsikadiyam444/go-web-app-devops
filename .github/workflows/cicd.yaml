@@ -13,7 +13,6 @@ jobs:
 
   build:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -31,7 +30,6 @@ jobs:
 
   code-quality:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -44,7 +42,6 @@ jobs:
   push:
     runs-on: ubuntu-latest
     needs: build
-
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -58,7 +55,7 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
-      - name: Build and Push action
+      - name: Build and Push Docker image
         uses: docker/build-push-action@v6
         with:
           context: .
@@ -69,7 +66,6 @@ jobs:
   update-newtag-in-helm-chart:
     runs-on: ubuntu-latest
     needs: push
-
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -84,8 +80,8 @@ jobs:
         env:
           GH_PAT: ${{ secrets.GH_PAT }}
         run: |
-          git config --global user.email "your-email@example.com"
-          git config --global user.name "Your Name"
+          git config --global user.email "vamsikadiyam444@gmail.com"
+          git config --global user.name "Vamsi Kadiyam"
           git remote set-url origin https://x-access-token:${GH_PAT}@github.com/vamsikadiyam444/go-web-app-devops.git
           git add helm/go-web-app-chart/values.yaml
           git commit -m "Update tag in Helm chart" || echo "No changes to commit"
