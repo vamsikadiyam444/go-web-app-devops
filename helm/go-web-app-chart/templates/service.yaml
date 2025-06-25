@@ -8,8 +8,8 @@ metadata:
 spec:
   ports:
   - port: 80
-    targetPort: 8080
+    targetPort: 8088
     protocol: TCP
   selector:
     app: go-web-app
-  type: ClusterIP
+  type: NodePort
