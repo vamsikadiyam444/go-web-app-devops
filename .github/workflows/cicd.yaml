@@ -10,7 +10,6 @@ on:
       - 'README.md'
 
 jobs:
-
   build:
     runs-on: ubuntu-latest
     steps:
@@ -38,9 +37,8 @@ jobs:
         uses: golangci/golangci-lint-action@v6
         with:
           version: v1.56.2
-          working-directory: .
           skip-cache: true
-          args: run
+          args: run ./...
 
   push:
     runs-on: ubuntu-latest
