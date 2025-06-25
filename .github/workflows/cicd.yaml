@@ -33,10 +33,16 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: Set up Go 1.22 (for lint)
+        uses: actions/setup-go@v2
+        with:
+          go-version: 1.22
+
       - name: Run golangci-lint
         uses: golangci/golangci-lint-action@v6
         with:
           version: v1.56.2
+          working-directory: .
           skip-cache: true
           args: run ./...
 
