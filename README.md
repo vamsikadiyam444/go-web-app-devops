@@ -1,19 +1,19 @@
-Go Web Application on AWS EKS
+# Go Web Application on AWS EKS
 
 A simple Go web application deployed on AWS Elastic Kubernetes Service (EKS) using Fargate, Helm, and ArgoCD for automated deployments.
 This project demonstrates how to containerize a Go application, deploy it to a managed Kubernetes cluster, and manage deployments with GitOps.
 
-Overview
+# Overview
 
-Language: Go
+# Language: Go
 
-Deployment: AWS EKS with Fargate
+# Deployment: AWS EKS with Fargate
 
-Package Manager: Helm
+# Package Manager: Helm
 
-Deployment Tool: ArgoCD (GitOps approach)
+# Deployment Tool: ArgoCD (GitOps approach)
 
-Features:
+# Features:
 
 Simple HTTP server using net/http
 
@@ -23,9 +23,9 @@ Easy image updates via Helm
 
 Automated deployment and sync via ArgoCD
 
-Prerequisites
+# Prerequisites
 
-Install the following tools on your machine:
+# Install the following tools on your machine:
 ```bash
 
 # AWS CLI
@@ -51,7 +51,7 @@ sudo mv argocd /usr/local/bin/
 
 ```
 
-Create EKS Cluster with Fargate
+# Create EKS Cluster with Fargate
 
 ```bash
 
@@ -63,7 +63,7 @@ eksctl create cluster \
 ```
 
 
-Check cluster nodes:
+# Check cluster nodes:
 
 ```bash
 
